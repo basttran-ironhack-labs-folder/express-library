@@ -1,13 +1,14 @@
-// Seed File (run this to insert more books into the database)
-// -----------------------------------
+// seed file (run this to insert more books into the database)
+// -----------------------------------------------------------
 // connects seed.js to the .env file
 require("dotenv").config();
 
 const mongoose = require("mongoose");
 
-// Get the Book model to do our databse query
+// get the Book model to do our database query
 const Book = require("../models/book-model.js");
 
+// get the book data from the JSON
 const bookData = require("./books.json");
 
 // !!! CONNECT TO THE SAME DATABASE AS app.js !!!
@@ -24,12 +25,10 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-Book.create(bookData)
+Book.insertMany(bookData)
   .then(bookResults => {
-    console.log(`Inserted ${bookResults.length} BOOKS!`);
+    console.log(`Inserted ${bookResults.length} BOOKS`);
   })
   .catch(err => {
-    console.log("Insert FAILURE!!", err);
+    console.log("Insert Failure!", err);
   });
-
-// Book.insertMany(bookData).then().catch();

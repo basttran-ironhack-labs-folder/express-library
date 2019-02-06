@@ -1,0 +1,13 @@
+http://localhost:5555/book/5c59928da
+
+PROTOCOL http://
+
+HOST/DOMAIN localhost
+
+PORT 5555
+
+PATH /book/5c59928da
+
+PATH PARAMETERS
+
+/book/:bookId
